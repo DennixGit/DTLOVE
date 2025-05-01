@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Eres mi tilina?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fff0f5;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #ff69b4;
+      font-size: 2.5rem;
+      margin-top: 60px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      margin: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background-color: #90ee90;
+    }
+
+    #no {
+      background-color: #ffcccb;
+      position: absolute;
+    }
+
+    #yeiii {
+      display: none;
+      color: #ff1493;
+      font-size: 2rem;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      #yeiii {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Tathiana, quieres ser mi tilina? 🥺</h1>
+  <button class="btn" id="yes">Sí 💖</button>
+  <button class="btn" id="no">No 😢</button>
+
+  <h2 id="yeiii">¡Yeiii! 🥰💘</h2>
+
+  <script>
+    const btnNo = document.getElementById("no");
+    const btnYes = document.getElementById("yes");
+    const yeiiiText = document.getElementById("yeiii");
+
+    function moveButton() {
+      const maxX = window.innerWidth - btnNo.offsetWidth;
+      const maxY = window.innerHeight - btnNo.offsetHeight;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      btnNo.style.left = `${x}px`;
+      btnNo.style.top = `${y}px`;
+    }
+
+    btnNo.addEventListener("mouseover", moveButton);
+    btnYes.addEventListener("click", () => {
+      yeiiiText.style.display = "block";
+    });
+
+    // Inicial para ubicar el botón "No" bien
+    moveButton();
+  </script>
+</body>
+</html>
